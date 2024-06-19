@@ -9,7 +9,7 @@ def load_class_freq(
     path='datasets/metadata/lvis_v1_train_cat_info.json', freq_weight=1.0):
     file_path = os.path.abspath(__file__)
     project_path = os.path.abspath(os.path.join(file_path, "../../../"))
-    path = project_path + path
+    path = os.path.join(project_path, path)
     cat_info = json.load(open(path, 'r'))
     cat_info = torch.tensor(
         [c['image_count'] for c in sorted(cat_info, key=lambda x: x['id'])])
